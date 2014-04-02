@@ -255,14 +255,14 @@ class Loader extends BaseLoader
                 SELECT COUNT(t.id) FROM text t
                 INNER JOIN text_translation tt ON tt.translatable_id = t.id
                 WHERE t.section_id = s.id
-                AND tt.active = 1
+                AND tt.active = true
                 AND tt.locale = st.locale
             ) AS has_text, (
                 SELECT COUNT(ss.id)
                 FROM section ss
                 INNER JOIN section_translation sst ON sst.translatable_id = ss.id
                 WHERE ss.parent_id = s.id
-                AND sst.active = 1
+                AND sst.active = true
                 AND sst.locale = st.locale
             ) AS has_children
             FROM mapping m
@@ -271,8 +271,8 @@ class Loader extends BaseLoader
             INNER JOIN app a ON a.id = s.app_id
             WHERE m.app_id <> 1
             AND s.app_id <> 1
-            AND m.type = "route"
-            AND st.active = 1
+            AND m.type = \'route\'
+            AND st.active = true
             ORDER BY m.app_id, s.parent_id, s.ordering, m.ordering
         ';
     }

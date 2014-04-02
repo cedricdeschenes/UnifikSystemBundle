@@ -1,5 +1,6 @@
 Unifik\SystemBundle\Entity\User:
   type: entity
+  table: user_data
   repositoryClass: Unifik\SystemBundle\Entity\UserRepository
   fields:
     id:

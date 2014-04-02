@@ -48,7 +48,7 @@ class PatternGenerationStrategy implements PatternGenerationStrategyInterface
         $query = $databaseConnection->createQueryBuilder()
             ->select('l.code')
             ->from('locale', 'l')
-            ->where('l.active = 1')
+            ->where('l.active = true')
             ->orderBy('l.ordering');
 
         $locales = $databaseConnection->fetchAll($query->getSQL());
