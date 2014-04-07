@@ -51,7 +51,7 @@ class TextController extends BaseController
             $sectionId = $this->getSection()->getId();
         }
 
-        $texts = $this->textRepository->findBy(array('section' => $sectionId, 'static' => false, 'active' => true), array('ordering' => 'ASC'));
+        $texts = $this->textRepository->findBy(array('section' => $sectionId, 'static' => 0, 'active' => 1), array('ordering' => 'ASC'));
 
         return $this->render('UnifikSystemBundle:Frontend/Text:displayTexts.html.twig', array(
             'texts' => $texts,

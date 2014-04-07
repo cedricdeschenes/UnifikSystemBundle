@@ -41,14 +41,14 @@ class TextController extends BackendController
 
         $mainEntities = $this->getEm()->getRepository('UnifikSystemBundle:Text')->findBy(array(
             'section' => $section->getId(),
-            'static' => false
+            'static' => 0
         ), array(
             'ordering' => 'ASC'
         ));
 
         $staticEntities = $this->getEm()->getRepository('UnifikSystemBundle:Text')->findBy(array(
             'section' => $section->getId(),
-            'static' => true
+            'static' => 1
         ), array(
             'ordering' => 'ASC'
         ));
